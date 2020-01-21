@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .btn-wrapper {
+      margin: 20px 0;
+      width: 200px;
+      height: 30px;
+    }
+    .btn-wrapper > button {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <form action="./create-sql">
+    <div>
+      <div class="input-wrapper">
+        表名：<input type="text" name="table_names[]"> 内容：<textarea name="contents[]" id="" cols="30" rows="2"></textarea>
+      </div>
+    </div>
+    <div class="btn-wrapper"><button type="button" id="btn">新增</button></div>
+    <input type="submit"> <input type="reset">
+  </form>
+
+  <script>
+    document.getElementById("btn").addEventListener("click", function(e) {
+      var input_example = document.getElementsByClassName("input-wrapper")[0];
+      var new_input = input_example.cloneNode(true);
+      for (var i = 0, len = new_input.children.length; i < len; i ++) {
+        new_input.children[i].value = "";
+      }
+      input_example.parentNode.appendChild(new_input);
+    });
+  </script>
+</body>
+</html>

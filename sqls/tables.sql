@@ -1,0 +1,1 @@
+CREATE TABLE tt1 (id int primary key auto_increment,program_type enum("电影", "电视剧", "动漫", "综艺"),name varchar(255));
