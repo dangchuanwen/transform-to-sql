@@ -13,5 +13,5 @@
 ### 使用
 
 - 1.git clone
-- 2.进入根目录执行命令 npm 安装依赖（lodash, express)
+- 2.进入根目录执行命令 npm install安装依赖（lodash, express)
 - 3.运行命令 node app.js ,根据提示打开浏览器输入网址，然后根据提示生产 sql 文件，sql 文件名与表名一致。生产的 sql 文件会放在 **sqls** 文件夹下。
