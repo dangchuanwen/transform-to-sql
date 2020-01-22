@@ -38,6 +38,6 @@ portIsOccupied(8080).then(port => {
     }
   });
   app.listen(port, () => {
-    console.log(`the server start at port ${port}`);
+    console.log(`please open your browser and then input url http://localhost:${port}`);
   });
 });
