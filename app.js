@@ -14,7 +14,6 @@ portIsOccupied(8080).then(port => {
     if (!table_names || !contents) {
       res.send("请填写正确的信息");
     } else {
-      let output = "";
       const len = table_names.length;
       for (let i = 0; i < len; i ++) {
         let table_name = table_names[i];
@@ -28,16 +27,15 @@ portIsOccupied(8080).then(port => {
         });
         columns = columns.slice(0, columns.length - 1);
         let sql = `CREATE TABLE ${table_name} (${columns});`;
-        output += sql;
+        writeFile(`./sqls/${ table_name }.sql`, sql).then(() => {
+          res.send(`创建/sqls/${ table_name }.sql文件成功`);
+        }, (err) => {
+          res.send("创建失败：" + err);
+        });
       }
-      writeFile("./sqls/tables.sql", output).then(() => {
-        res.send("创建/sqls/tables.sql文件成功");
-      }, (err) => {
-        res.send("创建失败：" + err);
-      });
     }
   });
   app.listen(port, () => {
-    console.log(`please open your browser and then input url http://localhost:${port}`);
+    console.log(`please open your browser and then visit url http://localhost:${port}`);
   });
 });
