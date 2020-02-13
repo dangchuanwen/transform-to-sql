@@ -6,7 +6,8 @@
 
     id int primary key auto_increment 主键
     program_type enum("电影", "电视剧", "动漫", "综艺") 节目类型
-    name varchar(255) 节目名称
+    name varchar(255) 节目名称,
+    unique(name, program_type)
 
 即：创建表语句时的字段信息 + 字段说明。注意中间用空格隔开。注意字段说明中不允许出现空格（比如中文括号会产生空格）
 
