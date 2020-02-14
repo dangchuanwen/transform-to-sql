@@ -26,7 +26,8 @@ portIsOccupied(8080).then(port => {
           columns += info.join(" ") + ",";
         });
         columns = columns.slice(0, columns.length - 1);
-        let sql = `CREATE TABLE ${table_name} (${columns});`;
+        let sql = `DROP table if exists ${table_name};
+                  CREATE TABLE ${table_name} (${columns});`;
         writeFile(`./sqls/${ table_name }.sql`, sql).then(() => {
           res.send(`创建/sqls/${ table_name }.sql文件成功`);
         }, (err) => {
