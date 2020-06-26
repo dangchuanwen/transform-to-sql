@@ -19,7 +19,7 @@ function portIsOccupied(port) {
 
 function writeFile(path, content) {
   return new Promise((resolve, reject) => {
-    fs.writeFile(path, content, "utf8", function(err) {
+    fs.writeFile(path, content, function(err) {
       if (err) {
         console.log("写文件出现错误", err);
         reject(err);
